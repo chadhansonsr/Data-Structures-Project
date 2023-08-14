@@ -21,7 +21,7 @@ class LRU_Cache(object):
             self.our_cache.popitem(last=False)
 
 
-our_cache = LRU_Cache(5)
+our_cache = LRU_Cache()
 
 our_cache.set(1, 1)
 our_cache.set(2, 2)
@@ -29,8 +29,8 @@ our_cache.set(3, 3)
 our_cache.set(4, 4)
 print(our_cache.our_cache)
 
-our_cache.get(1)  # returns 1
-our_cache.get(2)  # returns 2
+our_cache.get(1)  # returns 1 and moves key to end
+our_cache.get(2)  # returns 2 and moves key to end dictionary 
 print(our_cache.get(9))  # returns -1 because 9 is not present in the cache
 print(our_cache.our_cache)
 
