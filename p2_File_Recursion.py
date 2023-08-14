@@ -1,26 +1,22 @@
-def find_files(suffix, path):
-    """
-    Find all files beneath path with file name suffix.
 
-    Note that a path may contain further subdirectories
-    and those subdirectories may also contain further subdirectories.
+import glob
 
-    There are no limit to the depth of the subdirectories can be.
+search1 = glob.glob(r"\Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project/**/*.c", recursive = True)
+print("Here are the files ending with .c.")
+for search in search1:
+    print(search) # search will return
+                  # \Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project\testdir\t1.c
+                  # \Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project\testdir\subdir1\a.c
+                  # \Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project\testdir\subdir3\subsubdir1\b.c
+                  # \Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project\testdir\subdir5\a.c
 
-    Args:
-      suffix(str): suffix if the file name to be found
-      path(str): path of the file system
 
-    Returns:
-       a list of paths
-    """
-    return None
+search2 = glob.glob(r"\Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project/**/*.jpg", recursive = True)
+print("Here are the files ending with .jpg.")
+for search in search2:
+    print(search) # search will be blank because there are no .jpg files
 
-## Add your own test cases: include at least three test cases
-## and two of them must include edge cases, such as null, empty or very large values
-
-## Test Case 1
-
-## Test Case 2
-
-## Test Case 3
+search3 = glob.glob(r"\my location has a typo/**/*.c", recursive = True)
+print("Here are the files ending with .c.")
+for search in search3:
+    print(search) # search will be blank because of directory typo
