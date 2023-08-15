@@ -1,0 +1,2 @@
+The glob module traverses the given directory which can be any size so time complexity would be dependent on this and thus be O(n).
+Space complexity would also be O(n) since the number of files in the directory is fixed.
