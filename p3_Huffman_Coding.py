@@ -7,22 +7,72 @@ class Node:
         self.char = char
         self.left = left
         self.right = right
-        self.direction = ""
+        self.direction = ''
 
 
 def char_freq(data):
     chars = dict()
-    for char in data:
-        if chars.get(char) == None:  # noqa
-            chars[char] = 1
+    for x in data:
+        if chars.get(x) == None:  # noqa
+            chars[x] = 1
         else:
-            chars[char] += 1
+            chars[x] += 1
     return chars
 
 
-def huffman_encoding(data):
-    pass
+codes = dict()
 
+def huffman_codes(node, value=''):
+    newValue = value + str(node.direction)
+    if (node.left):
+        huffman_codes(node.left, newValue)
+    if (node.right):
+        huffman_codes(node.right, newValue)
+    if (not node.left and not node.right):
+        codes[node.char] = newValue
+
+    return codes
+
+
+def huffman_encoding(data):
+    char_with_freq = char_freq(data)
+    chars = char_with_freq.keys()
+    frequencies = char_with_freq.values()
+    print("chars: ", chars)
+    print("frequencies: ", frequencies)
+
+    nodes = []
+
+    for char in chars:
+        nodes.append(Node(char_with_freq.get(char), char))
+
+    while len(nodes) > 1:
+        nodes = sorted(nodes, key=lambda x: x.freq)
+
+        right = nodes[0]
+        left = nodes[1]
+
+        right.direction = 0
+        left.direction = 1
+
+        newNode = Node(left.freq+right.freq, left.char+right.char, left, right)
+
+        nodes.remove(left)
+        nodes.remove(right)
+        nodes.append(newNode)
+    huffman_encoding = huffman_codes(nodes[0])
+    print("characters with codes", huffman_encoding)
+    encodedOutput = encoded_output(data, huffman_encoding)
+    return  encodedOutput, nodes[0]
+
+
+def encoded_output(data, coding):
+    encodedOutput = []
+    for _ in data:
+        encodedOutput.append(coding[_])
+
+    string = ''.join([str(x) for x in encodedOutput])
+    return string
 
 def huffman_decoding(data, tree):
     pass
@@ -38,8 +88,8 @@ if __name__ == "__main__":
     print("The content of the data is: "
           "{}\n".format(a_great_sentence))
 
-    # encoded_data, tree = huffman_encoding(a_great_sentence)
-
+    encoding, tree = huffman_encoding(a_great_sentence)
+    print(encoding)
     # print ("The size of the encoded data is:"
     # " {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
     # print ("The content of the encoded data is:"
@@ -61,4 +111,5 @@ if __name__ == "__main__":
 
 # Test Case 3
 
-print(char_freq("The bird is the word"))
+#print(char_freq("The bird is the word"))
+#print(str(huffman_encoding))
