@@ -1,5 +1,23 @@
 import sys
 
+class Node:
+    def __init__(self, freq, char, left=None, right=None):
+        self.freq = freq
+        self.char = char
+        self.left = left
+        self.right = right
+        self.direction = ""
+
+
+def char_freq(data):
+    chars = dict()
+    for char in data:
+        if chars.get(char) == None:
+            chars[char] = 1
+        else:
+            chars[char] += 1
+    return chars
+
 def huffman_encoding(data):
     pass
 
@@ -14,15 +32,15 @@ if __name__ == "__main__":
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
     print ("The content of the data is: {}\n".format(a_great_sentence))
 
-    encoded_data, tree = huffman_encoding(a_great_sentence)
+    # encoded_data, tree = huffman_encoding(a_great_sentence)
 
-    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print ("The content of the encoded data is: {}\n".format(encoded_data))
+    # print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    # print ("The content of the encoded data is: {}\n".format(encoded_data))
 
-    decoded_data = huffman_decoding(encoded_data, tree)
+    # decoded_data = huffman_decoding(encoded_data, tree)
 
-    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print ("The content of the encoded data is: {}\n".format(decoded_data))
+    # print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    # print ("The content of the encoded data is: {}\n".format(decoded_data))
 
 ## Add your own test cases: include at least three test cases
 ## and two of them must include edge cases, such as null, empty or very large values
@@ -32,3 +50,5 @@ if __name__ == "__main__":
 ## Test Case 2
 
 ## Test Case 3
+
+print(char_freq("The bird is the word"))
