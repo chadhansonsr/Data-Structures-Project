@@ -109,12 +109,47 @@ if __name__ == "__main__":
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the decoded data is: {}\n".format(decoded_data))
 
-# Add your own test cases: include at least three test cases
-# and two of them must include edge cases, such as null,
-# #empty or very large values
+    test_case_1 = "AAAAAAABBBCCCCCCCDDEEEEEE"
 
-# Test Case 1
+    print ("The size of the data is: {}\n".format(sys.getsizeof(test_case_1)))
+    print ("The content of the data is: {}\n".format(test_case_1))
 
-# Test Case 2
+    encoded_data, tree = huffman_encoding(test_case_1)
 
-# Test Case 3
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+    test_case_2 = "GO BLUE!!!!!"
+
+    print ("The size of the data is: {}\n".format(sys.getsizeof(test_case_2)))
+    print ("The content of the data is: {}\n".format(test_case_2))
+
+    encoded_data, tree = huffman_encoding(test_case_2)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+    test_case_3 = ("ABC" * 99)
+
+    print ("The size of the data is: {}\n".format(sys.getsizeof(test_case_3)))
+    print ("The content of the data is: {}\n".format(test_case_3))
+
+    encoded_data, tree = huffman_encoding(test_case_3)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
