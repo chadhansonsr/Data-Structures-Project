@@ -38,8 +38,6 @@ def huffman_encoding(data):
     char_with_freq = char_freq(data)
     chars = char_with_freq.keys()
     frequencies = char_with_freq.values()
-    print("chars: ", chars)
-    print("frequencies: ", frequencies)
 
     nodes = []
 
@@ -61,7 +59,6 @@ def huffman_encoding(data):
         nodes.remove(right)
         nodes.append(newNode)
     huffman_encoding = huffman_codes(nodes[0])
-    print("characters with codes", huffman_encoding)
     encodedOutput = encoded_output(data, huffman_encoding)
     return  encodedOutput, nodes[0]
 
@@ -75,7 +72,23 @@ def encoded_output(data, coding):
     return string
 
 def huffman_decoding(data, tree):
-    pass
+    head = tree
+    decodedOutput = []
+    for _ in data:
+        if _ == '1':
+            tree = tree.right
+        elif _ == '0':
+            tree = tree.left
+        try:
+            if tree.left.char == None and tree.right.char == None:
+                pass
+        except AttributeError:
+            decodedOutput.append(tree.char)
+            tree = head
+
+    string = ''.join([str(x) for x in decodedOutput])
+    return string
+
 
 
 if __name__ == "__main__":
@@ -83,23 +96,18 @@ if __name__ == "__main__":
 
     a_great_sentence = "The bird is the word"
 
-    print("The size of the data is: "
-          "{}\n".format(sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: "
-          "{}\n".format(a_great_sentence))
+    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+    print ("The content of the data is: {}\n".format(a_great_sentence))
 
-    encoding, tree = huffman_encoding(a_great_sentence)
-    print(encoding)
-    # print ("The size of the encoded data is:"
-    # " {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    # print ("The content of the encoded data is:"
-    # " {}\n".format(encoded_data))
+    encoded_data, tree = huffman_encoding(a_great_sentence)
 
-    # decoded_data = huffman_decoding(encoded_data, tree)
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
 
-    # print ("The size of the decoded data is: "
-    # " {}\n".format(sys.getsizeof(decoded_data)))
-    # print ("The content of the encoded data is: {}\n".format(decoded_data))
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
 
 # Add your own test cases: include at least three test cases
 # and two of them must include edge cases, such as null,
@@ -110,6 +118,3 @@ if __name__ == "__main__":
 # Test Case 2
 
 # Test Case 3
-
-#print(char_freq("The bird is the word"))
-#print(str(huffman_encoding))
