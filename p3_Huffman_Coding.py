@@ -93,7 +93,6 @@ def huffman_decoding(data, tree):
 
 
 if __name__ == "__main__":
-    #codes = {}
 
     a_great_sentence = "yes"
 
