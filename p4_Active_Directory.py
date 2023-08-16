@@ -20,32 +20,36 @@ class Group(object):
         return self.name
 
 
+def is_user_in_group(user, group):
+    if not group:
+        return False
+    if user in group.get_users():
+        return True
+    for subgroup in group.get_groups():
+        if is_user_in_group(user, subgroup):
+            return True
+    return False
+
+
 parent = Group("parent")
 child = Group("child")
 sub_child = Group("subchild")
 
-sub_child_user = "sub_child_user"
-sub_child.add_user(sub_child_user)
+parent.add_user("dad")
+child.add_user("son")
+sub_child.add_user("doll")
 
 child.add_group(sub_child)
 parent.add_group(child)
 
+user, group = "dad", child
+print(is_user_in_group(user, group))
 
-def is_user_in_group(user, group):
-    """
-    Return True if user is in the group, False otherwise.
+user, group = "mom", parent
+print(is_user_in_group(user, group))
 
-    Args:
-      user(str): user name/id
-      group(class:Group): group to check user membership against
-    """
-    return None
+user, group = "doll", sub_child
+print(is_user_in_group(user, group))
 
-## Add your own test cases: include at least three test cases
-## and two of them must include edge cases, such as null, empty or very large values
-
-## Test Case 1
-
-## Test Case 2
-
-## Test Case 3
+user, group = "doll", parent
+print(is_user_in_group(user, group))
