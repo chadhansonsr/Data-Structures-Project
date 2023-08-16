@@ -1,0 +1,2 @@
+The time complexity for Huffman coding, based on encoding each usnique character on its frequency is O(nlogN). 
+Extracting the minimum frequency values takes O(n) time
