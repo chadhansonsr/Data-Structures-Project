@@ -13,7 +13,7 @@ class Block:
 
     def calc_hash(self):
         sha = hashlib.sha256()
-        hash_str = f"{self.timestamp}-{self.data}-{self.previous_hash}".encode('utf-8')
+        hash_str = f"{self.timestamp}-{self.data}-{self.previous_hash}".encode('utf-8')  # noqa
         sha.update(hash_str)
         return sha.hexdigest()
 
@@ -24,7 +24,7 @@ class BlockChain:
         self.next = next
 
     def add_block(self, data):
-        if self.head == None:
+        if self.head is None:
             self.head = Block(data, None)
         else:
             current = self.head
