@@ -1,0 +1,1 @@
+Time complexity for this algorithm is 0(1) since the time required to run is indepenent of the input size. Space compelxity is O(n) with n representing the number of blocks.
