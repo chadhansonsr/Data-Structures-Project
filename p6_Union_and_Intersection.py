@@ -75,6 +75,10 @@ list2.insert_node(4)
 # print("Linked list 2: ")
 # display_list(list2.head)
 
-print("The union of lists 1 and 2 is: ")
-union = union(list1.head, list2.head)
-display_list(union)
+# union = union(list1.head, list2.head)
+# print("The union of lists 1 and 2 is: ")
+# display_list(union)
+
+intersection = intersection(list1.head, list2.head)
+print("The intersection of lists 1 and 2 is: ")
+display_list(intersection)
