@@ -22,13 +22,15 @@ def display_list(list):
         temp = temp.next
     print("")
 
-def check_list( list, value):
+
+def check_list(list, value):
     temp = list
     while temp:
         if temp.value == value:
             return True
         temp = temp.next
     return False
+
 
 def union(list1, list2):
     dict = {}
@@ -41,7 +43,7 @@ def union(list1, list2):
 
     temp = list2
     while temp:
-        if (dict.get(temp.value, None) == None):
+        if (dict.get(temp.value, None) is None):
             union.insert_node(temp.value)
         temp = temp.next
     return union.head
@@ -69,9 +71,9 @@ list1.insert_node(2)
 list1.insert_node(4)
 list1.insert_node(35)
 list1.insert_node(6)
-list1.insert_node(65)
-list1.insert_node(6)
-list1.insert_node(4)
+list1.insert_node(655)
+list1.insert_node("str")
+list1.insert_node(True)
 list1.insert_node(3)
 list1.insert_node(21)
 print("Linked list 1: ")
@@ -82,11 +84,11 @@ list2.insert_node(6)
 list2.insert_node(32)
 list2.insert_node(4)
 list2.insert_node(9)
-list2.insert_node(6)
+list2.insert_node(60)
 list2.insert_node(1)
 list2.insert_node(11)
 list2.insert_node(21)
-list2.insert_node(1)
+list2.insert_node(11111111111)
 print("Linked list 2: ")
 display_list(list2.head)
 
@@ -98,30 +100,54 @@ intersection1 = intersection(list1.head, list2.head)
 print("The intersection of lists 1 and 2 is: ")
 display_list(intersection1)
 
+list3 = LinkedList()
+list3.insert_node(4)
+list3.insert_node(6)
+list3.insert_node(4)
+list3.insert_node(8)
+list3.insert_node(9)
+list3.insert_node(10)
+print("\n\nLinked list 3: ")
+display_list(list3.head)
 
-# list3 = LinkedList()
-# list3.insert_node(4)
-# list3.insert_node(6)
-# list3.insert_node(4)
-# list3.insert_node(8)
-# list3.insert_node(9)
-# list3.insert_node(10)
-# print("\n\nLinked list 3: ")
-# display_list(list3.head)
+list4 = LinkedList()
+list4.insert_node(0)
+list4.insert_node(1)
+list4.insert_node(2)
+list4.insert_node(8)
+list4.insert_node(4)
+print("Linked list 4: ")
+display_list(list4.head)
 
-# list4 = LinkedList()
-# list4.insert_node(0)
-# list4.insert_node(1)
-# list4.insert_node(2)
-# list4.insert_node(8)
-# list4.insert_node(4)
-# print("Linked list 4: ")
-# display_list(list4.head)
+union2 = union(list3.head, list4.head)
+print("\n\nThe union of lists 3 and 4 is: ")
+display_list(union2)
 
-# union2 = union(list3.head, list4.head)
-# print("\n\nThe union of lists 3 and 4 is: ")
-# display_list(union2)
+intersection2 = intersection(list3.head, list4.head)
+print("The intersection of lists 3 and 4 is: ")
+display_list(intersection2)
 
-# intersection2 = intersection(list3.head, list4.head)
-# print("The intersection of lists 3 and 4 is: ")
-# display_list(intersection2)
+list5 = LinkedList()
+list5.insert_node("B")
+list5.insert_node("L")
+list5.insert_node("U")
+list5.insert_node("E")
+list5.insert_node("!")
+list5.insert_node("!")
+list5.insert_node("!")
+print("\n\nLinked list 5: ")
+display_list(list5.head)
+
+list6 = LinkedList()
+list6.insert_node("G")
+list6.insert_node("O")
+print("Linked list 4: ")
+display_list(list6.head)
+
+union3 = union(list5.head, list6.head)
+print("\n\nThe union of lists 5 and 6 is: ")
+display_list(union3)
+
+intersection3 = intersection(list5.head, list6.head)
+print("The intersection of lists 5 and 6 is: ")
+display_list(intersection3)
