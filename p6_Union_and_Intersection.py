@@ -42,13 +42,15 @@ def union(list1, list2):
         union.insert_node(temp.value)
         dict[temp.value] = 1
         temp = temp.next
-        #print(union.head)
+        #print(dict)
 
     temp = list2
     while temp:
         if (dict.get(temp.value, None) is None):
             union.insert_node(temp.value)
         temp = temp.next
+        #print(dict)
+        #print(union.head)
     return union.head
 
 
@@ -70,7 +72,7 @@ def intersection(list1, list2):
 
 list1 = LinkedList()
 list1.insert_node(3)
-list1.insert_node(1)
+list1.insert_node(3)
 list1.insert_node(2)
 # list1.insert_node(35)
 # list1.insert_node(6)
