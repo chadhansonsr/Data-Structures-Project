@@ -21,4 +21,4 @@ search3 = sorted(glob.glob(r"\my location has a typo/**/*.c", recursive=True))
 print("Here are the files ending with .c.")
 for search in search3:
     print(search)
-    # search will be blank because of directory typo
+    # search will be blank because of a directory typo
