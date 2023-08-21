@@ -1,4 +1,3 @@
-
 import glob
 
 search1 = sorted(glob.glob(r"\Users\t9349ch\Desktop\SWX\Udacity\Data Structures Project/**/*.c", recursive=True))  # noqa
