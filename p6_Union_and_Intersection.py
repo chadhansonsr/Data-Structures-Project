@@ -72,7 +72,7 @@ def intersection(list1, list2):
 
 list1 = LinkedList()
 list1.insert_node(3)
-list1.insert_node(3)
+list1.insert_node(31)
 list1.insert_node(2)
 # list1.insert_node(35)
 # list1.insert_node(6)
@@ -85,8 +85,8 @@ print("Linked list 1: ")
 display_list(list1.head)
 
 list2 = LinkedList()
+list2.insert_node(5)
 list2.insert_node(3)
-list2.insert_node(4)
 list2.insert_node(5)
 # list2.insert_node(9)
 # list2.insert_node(60)
