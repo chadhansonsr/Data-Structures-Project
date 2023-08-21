@@ -3,6 +3,8 @@ class Node:
         self.value = value
         self.next = next
 
+    def __str__(self):
+        return f' value is {self.value}'
 
 class LinkedList:
     def __init__(self):
@@ -40,6 +42,7 @@ def union(list1, list2):
         union.insert_node(temp.value)
         dict[temp.value] = 1
         temp = temp.next
+        #print(union.head)
 
     temp = list2
     while temp:
