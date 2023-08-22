@@ -13,7 +13,7 @@ class Node:
 def char_freq(data):
     chars = dict()
     for x in data:
-        if chars.get(x) == None:  # noqa
+        if chars.get(x) is None:
             chars[x] = 1
         else:
             chars[x] += 1
@@ -38,7 +38,6 @@ def huffman_codes(node, value=''):
 def huffman_encoding(data):
     char_with_freq = char_freq(data)
     chars = char_with_freq.keys()
-    frequencies = char_with_freq.values()
 
     nodes = []
 
@@ -94,71 +93,71 @@ def huffman_decoding(data, tree):
 
 if __name__ == "__main__":
 
-    a_great_sentence = "yes"
+    a_great_sentence = "wow what a great sentance!"
 
     print("The size of the data is: "
-          "{}\n".format(sys.getsizeof(a_great_sentence)))
+          "{}\n".format(sys.getsizeof(a_great_sentence)))  # noqa size is 75
     print("The content of the data is: {}\n".format(a_great_sentence))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
 
     print("The size of the encoded data is: "
-          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))  # noqa size is 40
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: "
           "{}\n".format(sys.getsizeof(huffman_decoding(encoded_data, tree))))
-    print("The content of the decoded data is: {}\n".format(decoded_data))
+    print("The content of the decoded data is: {}\n".format(decoded_data))  # noqa size is 75
 
     test_case_1 = "AAAAAAABBBCCCCCCCDDEEEEEE"
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_1)))
+    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_1)))  # noqa size is 74
     print("The content of the data is: {}\n".format(test_case_1))
 
     encoded_data, tree = huffman_encoding(test_case_1)
 
     print("The size of the encoded data is: "
           "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+    print("The content of the encoded data is: {}\n".format(encoded_data))  # noqa size is 32
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: "
           "{}\n".format(sys.getsizeof(decoded_data)))
-    print("The content of the decoded data is: {}\n".format(decoded_data))
+    print("The content of the decoded data is: {}\n".format(decoded_data))  # noqa size is 74
 
     test_case_2 = "GO BLUE!!!!!"
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_2)))
+    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_2)))  # noqa size is 61
     print("The content of the data is: {}\n".format(test_case_2))
 
     encoded_data, tree = huffman_encoding(test_case_2)
 
     print("The size of the encoded data is: "
-          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))  # noqa size is 32
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: "
-          "{}\n".format(sys.getsizeof(decoded_data)))
+          "{}\n".format(sys.getsizeof(decoded_data)))  # noqa size is 61
     print("The content of the decoded data is: {}\n".format(decoded_data))
 
     test_case_3 = ("ABC" * 99)
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_3)))
+    print("The size of the data is: {}\n".format(sys.getsizeof(test_case_3)))  # noqa size is 346
     print("The content of the data is: {}\n".format(test_case_3))
 
     encoded_data, tree = huffman_encoding(test_case_3)
 
     print("The size of the encoded data is: "
-          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+          "{}\n".format(sys.getsizeof(int(encoded_data, base=2))))  # noqa size is 92
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: "
-          "{}\n".format(sys.getsizeof(decoded_data)))
+          "{}\n".format(sys.getsizeof(decoded_data)))  # noqa size is 346
     print("The content of the decoded data is: {}\n".format(decoded_data))
