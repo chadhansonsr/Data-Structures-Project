@@ -43,13 +43,13 @@ child.add_group(sub_child)
 parent.add_group(child)
 
 user, group = "dad", child
-print(is_user_in_group(user, group))
+print(is_user_in_group(user, group))  # False
 
 user, group = "mom", parent
-print(is_user_in_group(user, group))
+print(is_user_in_group(user, group))  # False
 
 user, group = "doll", sub_child
-print(is_user_in_group(user, group))
+print(is_user_in_group(user, group))  # True
 
 user, group = "doll", parent
-print(is_user_in_group(user, group))
+print(is_user_in_group(user, group))  # True
