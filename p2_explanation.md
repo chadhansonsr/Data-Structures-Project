@@ -1,2 +1,1 @@
-The glob.glob() function traverses the given directory which can be any size so time complexity would be dependent on this and thus be O(n).
-Space complexity would also be O(n) since the number of files in the directory is fixed at the moment of searching.
+The time and space complexity for this alogrithm is O(n) since the directory is recursively traversed.  The space is directly limited by the oversall size of the directory.
