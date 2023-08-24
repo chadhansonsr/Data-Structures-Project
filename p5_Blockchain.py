@@ -46,8 +46,29 @@ class BlockChain:
             current = current.next
 
 
+print("Test 1")
+
 my_blockchain = BlockChain()
 my_blockchain.add_block("block1")
 my_blockchain.add_block("block2")
 my_blockchain.add_block("block3")
-my_blockchain.print_block()
+
+print(my_blockchain.print_block())
+
+print("Test 2")
+
+my_blockchain2 = BlockChain()
+my_blockchain2.add_block(99 * 99)
+my_blockchain2.add_block(99 / 99)
+my_blockchain2.add_block(99 % 99)
+
+print(my_blockchain2.print_block())
+
+print("Test 3")
+
+my_blockchain3 = BlockChain()
+my_blockchain3.add_block(2)
+my_blockchain3.add_block("2")
+my_blockchain3.add_block("two")
+
+print(my_blockchain3.print_block())
