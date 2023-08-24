@@ -51,7 +51,61 @@ print(our_cache.our_cache)
 our_cache.set(9, 8675309)
 print(our_cache.get(9))  # prints 8675309
 print(our_cache.our_cache)
-# Test Case 4
-print(our_cache.get(3))  # prints -1 because value not in cache
-# Test Case 5
-print(our_cache.get(5))  # prints 5
+
+our_cache2 = LRU_Cache()
+
+our_cache2.set(1, 9 * 9)
+our_cache2.set(2, 2 * "times")
+print(our_cache2.our_cache)  # prints key/value pairs currently in dictionary
+
+our_cache2.get(1)
+our_cache2.get(2)
+print(our_cache2.get(9 * 9))  # noqa prints -1 since value not in cache due to get format
+print(our_cache2.our_cache)
+
+our_cache2.set(5, 5)
+our_cache2.set(6, 6)
+print(our_cache2.get("hi"))  # prints -1 because value not in cache
+print(our_cache2.our_cache)
+
+# Test Case 1
+our_cache2.set(7, "hi")
+print(our_cache2.get(7))  # prints hi
+print(our_cache2.our_cache)
+# Test Case 2
+our_cache2.set(8, " ")
+print(our_cache2.get(8))  # prints a space
+print(our_cache2.our_cache)
+# Test Case 3
+our_cache2.set(9, 8675309)
+print(our_cache2.get(99))  # prints nothing due to get typo
+print(our_cache2.our_cache)
+
+our_cache3 = LRU_Cache()
+
+our_cache3.set(1, 1)
+our_cache3.set(2, 1.1)
+print(our_cache3.our_cache)  # prints key/value pairs currently in dictionary
+
+our_cache3.get(1)
+our_cache3.get(2)
+print(our_cache3.get(.1 * .1))  # noqa prints -1 since value not in cache due to get format
+print(our_cache3.our_cache)
+
+our_cache3.set(5, 5)
+our_cache3.set(6, 6)
+print(our_cache3.get("hi"))  # prints -1 because value not in cache
+print(our_cache3.our_cache)
+
+# Test Case 1
+our_cache3.set(7, .1 * .1)
+print(our_cache3.get(7))  # prints 0.010000000000000002
+print(our_cache3.our_cache)
+# Test Case 2
+our_cache3.set(8, .1 + .1)
+print(our_cache3.get(8))  # prints 0.2
+print(our_cache3.our_cache)
+# Test Case 3
+our_cache3.set(9, .1 / .1)
+print(our_cache3.get(9))  # prints 1
+print(our_cache3.our_cache)
